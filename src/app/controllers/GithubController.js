@@ -1,6 +1,7 @@
 import api from "../../services/github";
 class GithubController {
-  async store(req, res) {
+  async show(req, res) {
+    console.log("cheguei aqui1");
     const { repo, numberRepo } = req.params;
     const response = await api.get(`users/${repo}/repos`, {
       params: {
