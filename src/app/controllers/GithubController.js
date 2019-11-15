@@ -1,7 +1,7 @@
 import api from "../../services/github";
 class GithubController {
   async store(req, res) {
-    const { repo } = req.params;
+    const { repo, numberRepo } = req.params;
     const response = await api.get(`users/${repo}/repos`, {
       params: {
         sort: "created",
@@ -15,7 +15,7 @@ class GithubController {
       }
     });
 
-    return res.json(sharpRepositories.slice(0, 5));
+    return res.json(sharpRepositories[numberRepo]);
   }
 }
 
