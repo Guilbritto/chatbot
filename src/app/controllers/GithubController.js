@@ -11,7 +11,11 @@ class GithubController {
     const sharpRepositories = [];
     response.data.map(element => {
       if (element.language === "C#") {
-        sharpRepositories.push(element);
+        sharpRepositories.push({
+          avatar: element.owner.avatar_url,
+          name: element.name,
+          description: element.description
+        });
       }
     });
 
