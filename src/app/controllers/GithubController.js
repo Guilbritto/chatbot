@@ -1,7 +1,7 @@
 import api from "../../services/github";
+
 class GithubController {
   async show(req, res) {
-    console.log("cheguei aqui1");
     const { repo, numberRepo } = req.params;
     const response = await api.get(`users/${repo}/repos`, {
       params: {
@@ -19,8 +19,11 @@ class GithubController {
         });
       }
     });
+    if (numberRepo) {
+      return res.json(sharpRepositories[numberRepo]);
+    }
 
-    return res.json(sharpRepositories[numberRepo]);
+    return res.json(sharpRepositories);
   }
 }
 
