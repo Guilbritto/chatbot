@@ -3,6 +3,6 @@ import GithubController from "./app/controllers/GithubController";
 
 const routes = new Router();
 
-routes.get("/", GithubController.store);
+routes.get("/:repo", GithubController.store);
 
 export default routes;
